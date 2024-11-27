@@ -1,0 +1,7 @@
+version: "2.0"
+nlu:
+  - intent: query_article
+    examples: |
+      - Show me the article titled "Deep Learning"
+      - Can I read the "AI Basics" article?
+      - Find article "Graph Databases"

@@ -1,0 +1,18 @@
+intents:
+  - query_article
+  - query_relationship
+
+entities:
+  - article_title
+
+slots:
+  article_title:
+    type: text
+
+responses:
+  utter_ask_article_title:
+    - text: "What article would you like to retrieve?"
+  utter_article_found:
+    - text: "Here is the article: {article_title}"
+  utter_no_article:
+    - text: "Sorry, I couldn’t find that article."
