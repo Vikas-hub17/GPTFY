@@ -1,5 +1,9 @@
 import time
 from rasa_sdk.executor import CollectingDispatcher
+import sys
+import os
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from graph_db.graph_queries import GraphDatabaseHandler
 
 db = GraphDatabaseHandler("bolt://localhost:7687", "neo4j", "password")

@@ -18,7 +18,7 @@ class GraphDatabaseHandler:
         return [record["title"] for record in result]
 
 # Usage
-db = GraphDatabaseHandler("bolt://localhost:7687", "neo4j", "password")
+db = GraphDatabaseHandler("bolt://localhost:7687", "neo4j", "12345678")
 articles = db.query_articles()
 print("Articles:", articles)
 db.close()
