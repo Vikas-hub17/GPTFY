@@ -3,3 +3,5 @@ rasa
 pyairtable
 matplotlib
 pandas
+sqlalchemy<2.0
+

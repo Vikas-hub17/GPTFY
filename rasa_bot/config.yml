@@ -1,11 +1,16 @@
 language: en
 pipeline:
-- name: "SpacyNLP"
-- name: "WhitespaceTokenizer"
-- name: "RegexFeaturizer"
-- name: "LexicalSyntacticFeaturizer"
-- name: "DIETClassifier"
+  - name: SpacyNLP
+    model: "en_core_web_md"
+  - name: SpacyTokenizer
+  - name: RegexFeaturizer
+  - name: CountVectorsFeaturizer
+  - name: DIETClassifier
+  - name: EntitySynonymMapper
+  - name: ResponseSelector
 policies:
-- name: "MemoizationPolicy"
-- name: "TEDPolicy"
+  - name: "MemoizationPolicy"
+  - name: "TEDPolicy"
+  - name: "RulePolicy"
+    max_failed: 5  # increase the max_failed limit if needed
 assistant_id: 20241129-225355-median-soul

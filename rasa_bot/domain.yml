@@ -1,3 +1,5 @@
+version: "3.1"
+
 intents:
   - query_article
   - query_relationship
@@ -8,6 +10,12 @@ entities:
 slots:
   article_title:
     type: text
+    mappings:
+      - type: from_entity
+        entity: article_title
+
+actions:
+  - action_query_articles
 
 responses:
   utter_ask_article_title:

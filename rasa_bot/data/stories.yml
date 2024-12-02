@@ -1,6 +1,7 @@
-version: "2.0"
+version: "3.1"
 stories:
-  - story: query for article
+  - story: Retrieve article
     steps:
       - intent: query_article
       - action: action_query_articles
+      - action: utter_ask_article_title
