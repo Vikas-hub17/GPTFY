@@ -1,18 +1,13 @@
-import time
-from rasa_sdk.executor import CollectingDispatcher
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from graph_db.neo4j_connection import Neo4jConnection
+from graph_db.rag_schema import RAGSchema
 
-from graph_db.graph_queries import GraphDatabaseHandler
+def test_rag_system():
+    connection = Neo4jConnection(uri="bolt://localhost:7687", user="neo4j", password="password")
+    schema = RAGSchema(connection)
+    schema.create_schema()
+    documents = schema.query_documents()
+    print(f"Documents in Traditional RAG: {documents}")
+    connection.close()
 
-db = GraphDatabaseHandler("bolt://localhost:7687", "neo4j", "password")
-
-def test_query():
-    start_time = time.time()
-    results = db.query_articles()
-    end_time = time.time()
-    print("Results:", results)
-    print(f"Query Time: {end_time - start_time:.4f} seconds")
-
-test_query()
+if __name__ == "__main__":
+    test_rag_system()
